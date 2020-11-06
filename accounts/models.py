@@ -5,7 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 
 class CustomUserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
-
+    
+    use_in_migrations = True
+    
     def _create_user(self, email, password=None, **extra_fields):
         """Create and save a User with the given email and password."""
         if not email:
